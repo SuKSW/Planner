@@ -5,7 +5,7 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 
 var { database } = require('./config');
-var apis = require('./apis');
+var routes = require('./routes');
 
 var app = express();
 
@@ -22,7 +22,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() { console.log("Successfully connected to Mongo database: trackbook") });
 
-apis.setUpApis(app);
+routes.setUpRoutes(app);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
