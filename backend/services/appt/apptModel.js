@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-const AppointmentSchema = require('../schema/apptSchema')
+const AppointmentSchema = require('./apptSchema')
 
 
 const Appointment = mongoose.model('Appointment', AppointmentSchema);

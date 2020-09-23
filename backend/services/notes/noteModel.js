@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-const NoteSchema = require('../schema/noteSchema')
+const NoteSchema = require('./noteSchema')
 
 
 const Note = mongoose.model('Note', NoteSchema);
