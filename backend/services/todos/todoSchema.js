@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const TodoSchema = new mongoose.Schema({ 
     checked: { 
         type: Boolean, 
+        required: true,
         default:false 
     }, 
     priority: {

@@ -5,6 +5,6 @@ module.exports = {
         port: '9000'
     },
     database: {
-        url: 'mongodb://localhost/trackbook'
+        url: 'mongodb://localhost/planner'
     }
 }

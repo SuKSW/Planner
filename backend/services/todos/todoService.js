@@ -1,4 +1,4 @@
-const Todo = require('./todoModel');
+const TodoModel = require('./todoModel');
 
 // Return list of all todos.
 exports.get_list = function(req, res) {
@@ -11,15 +11,18 @@ exports.get_list_by_date = function(req, res) {
 };
 
 // Create todo.
-exports.create = function(req, res) {
+exports.create = function(req, res, next) {
     let todo = {
         checked: req.body.checked,
         priority: req.body.priority,
         task: req.body.task
     }
-    Todo.create(todo, function (err, todoCreated) {
-        if (err) return handleError(err);
-        res.status(201).send(todoCreated);
+    TodoModel.create(todo, function (err, todoCreated) {
+        if (err) {
+            console.log("TodoService Error:", err.message);
+            return next(err);
+        }
+        return res.status(201).send(todoCreated);
     });
 };
 
