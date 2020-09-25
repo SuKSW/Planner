@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-var calendarService = require('../services/calendar/calendarService');
-var todoService = require('../services/todos/todoService');
-var apptService = require('../services/appt/apptService');
-var notesService = require('../services/notes/notesService');
+var calendarService = require('./services/calendar/calendarService');
+var todoService = require('./services/todos/todoService');
+var apptService = require('./services/appt/apptService');
+var notesService = require('./services/notes/notesService');
 
 router.get('/', function(req, res, next) {
     res.send('index');
