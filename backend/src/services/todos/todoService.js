@@ -1,3 +1,4 @@
+const HttpStatusCode = require('../../constants/httpStatusCode');
 const TodoModel = require('./todoModel');
 
 // Return list of all todos.
@@ -19,10 +20,9 @@ exports.create = function(req, res, next) {
     }
     TodoModel.create(todo, function (err, todoCreated) {
         if (err) {
-            console.log("TodoService Error:", err.message);
             return next(err);
         }
-        return res.status(201).send(todoCreated);
+        return res.status(HttpStatusCode.CREATED).send(todoCreated);
     });
 };
 

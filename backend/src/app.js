@@ -6,7 +6,9 @@ var mongoose = require('mongoose');
 
 const { database } = require('../config');
 const router = require('./router');
-const handleErrors = require('./middleware/handleErrors');
+const errorLogger = require('./middleware/errorHandling/errorLogger');
+const clientErrorHandler = require('./middleware/errorHandling/clientErrorHandler');
+const errorHandler = require('./middleware/errorHandling/errorHandler');
 
 var app = express();
 
@@ -30,6 +32,8 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-app.use(handleErrors);
+app.use(errorLogger);
+app.use(clientErrorHandler);
+app.use(errorHandler);
 
 module.exports = app;
