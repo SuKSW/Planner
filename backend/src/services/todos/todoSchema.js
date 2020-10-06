@@ -9,7 +9,7 @@ const TodoSchema = new mongoose.Schema({
     priority: {
         type: String,
         required: true,
-        enum: ['High', 'Medium', 'Low']
+        enum: ['high', 'medium', 'low']
     },
     task: {
         type: String,

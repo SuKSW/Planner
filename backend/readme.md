@@ -39,3 +39,7 @@ This lists all the containers.
 docker stop <container id>
 ```
 This stops the container.
+7. Next time use the following command to start the same container again.
+```
+docker start <container id>
+```
